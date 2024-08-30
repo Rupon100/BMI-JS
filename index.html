@@ -8,20 +8,33 @@
 </head>
 <body class="bg-gray-800 text-white flex flex-col justify-center items-center">
     <h1 class="text-3xl m-4 font-semibold">BMI Calculator</h1>
-    <div class="flex flex-col gap-3 my-3">
-        <div class="flex gap-3 flex-col sm:flex-row">
-            <div class="space-y-2">
+    <div class="flex flex-col gap-10 my-3">
+        <div class="flex gap-4 flex-col sm:flex-row">
+            <div class="space-y-2 flex flex-col bg-indigo-900 p-4 rounded">
                 <p>Enter Your Weight(kg) ?</p>
                 <input type="text" id="weight" class="p-2 rounded-lg outline-none text-black">
+                <select id="weightSelected" class="text-black p-2 rounded">
+                    <option value="kg" selected>kg</option>
+                    <option value="lb">lb</option>
+                </select>
             </div>  
-            <div class="space-y-2">
-                <p>Enter Your Height(m) ?</p>
+            <div class="space-y-2 flex flex-col bg-indigo-900 p-4 rounded">
+                <p>Enter Your Height?</p>
                 <input type="text" id="height" class="p-2 rounded-lg outline-none text-black">
+                <select id="unitSelected" class="text-black p-2 rounded">
+                    <option value="meter" selected>meter</option>
+                    <option value="centimeter">centimeter</option>
+                </select>
             </div> 
         </div> 
-        <button id="btn" class="self-center px-5 py-2 border rounded">calculate</button>
+        <div class="flex flex-col justify-center items-center gap-2">
+            <button id="btn" class="self-center px-5 py-2 border rounded">calculate</button>
+            <button id="btnClear" class="self-center px-5 py-2 border rounded">clear</button>
+        </div>
         <p id="bmiNumber" class="text-xl font-semibold text-center"></p>
         <h1 id="result" class="text-xl font-semibold text-center"></h1>
+        <p id="error" class="text-base font-semibold text-center"></p>
+
     </div>
     <script src="./script.js"></script>
 </body>
