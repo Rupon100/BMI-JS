@@ -3,7 +3,9 @@ const weight = document.getElementById("weight");
 const height = document.getElementById("height");
 const bmitxt = document.getElementById("bmiNumber");
 const result = document.getElementById("result");
-
+const unitSelected = document.getElementById("unitSelected");
+const btnClear = document.getElementById("btnClear");
+const weightSelected = document.getElementById("weightSelected");
 
 function showResult(bmi){
     if(bmi < 18.5){
@@ -18,15 +20,42 @@ function showResult(bmi){
     }
 }
 
+ 
 button.addEventListener("click",function(){
-    const weightValue = weight.value;
-    const heightValue = height.value;
-    const bmi = weightValue / (heightValue ** 2);
-    bmitxt.innerText = "Your BMI: " + bmi.toFixed(1);
+   
+    const weightValue = parseFloat(weight.value);
+    const heightValue = parseFloat(height.value);
+    const selectedUnit = unitSelected.value;
+    const weightUnit = weightSelected.value;
+        
 
-    weight.value = '';
-    height.value = '';
-         
+    if(isNaN(heightValue) || isNaN(weightValue)){
+        document.getElementById("error").innerText = "Enter a Valid number!";
+        return;
+    }
+
+    let lbtoKg = weightValue;
+    if(weightUnit === "lb") {
+        lbtoKg = weightValue / 2.204;
+    }
+
+    let bmi;
+    if(selectedUnit === "meter"){
+        bmi = lbtoKg / (heightValue ** 2);
+    } else if(selectedUnit === "centimeter") {
+        bmi = lbtoKg / ((heightValue / 100) ** 2);
+    }else {
+        return;
+    }
+    bmitxt.innerText = "Your BMI: " + bmi.toFixed(1);
+        
+     
     showResult(bmi);   
 });
 
+btnClear.addEventListener("click",function(){
+    weight.value = '';
+    height.value = '';
+    result.innerText = '';
+    bmitxt.innerText = '';
+})
