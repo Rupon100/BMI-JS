@@ -58,4 +58,5 @@ btnClear.addEventListener("click",function(){
     height.value = '';
     result.innerText = '';
     bmitxt.innerText = '';
+    document.getElementById("error").innerText = '';
 })
