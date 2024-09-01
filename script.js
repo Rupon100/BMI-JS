@@ -7,6 +7,7 @@ const unitSelected = document.getElementById("unitSelected");
 const btnClear = document.getElementById("btnClear");
 const weightSelected = document.getElementById("weightSelected");
 
+//for condition
 function showResult(bmi){
     if(bmi < 18.5){
         result.innerText = "You are underweight!";
@@ -20,15 +21,13 @@ function showResult(bmi){
     }
 }
 
- 
+ //clickEvent
 button.addEventListener("click",function(){
-   
     const weightValue = parseFloat(weight.value);
     const heightValue = parseFloat(height.value);
     const selectedUnit = unitSelected.value;
     const weightUnit = weightSelected.value;
         
-
     if(isNaN(heightValue) || isNaN(weightValue)){
         document.getElementById("error").innerText = "Enter a Valid number!";
         return;
@@ -48,11 +47,14 @@ button.addEventListener("click",function(){
         return;
     }
     bmitxt.innerText = "Your BMI: " + bmi.toFixed(1);
-        
+
+    const imgage = document.getElementById("img");
+    imgage.classList.remove("hidden");
      
-    showResult(bmi);   
+    showResult(bmi);
 });
 
+//for clear 
 btnClear.addEventListener("click",function(){
     weight.value = '';
     height.value = '';

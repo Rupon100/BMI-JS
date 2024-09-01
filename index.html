@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMI</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preload" href="./bmiphoto.jpg" as="image">
 </head>
 <body class="bg-gray-800 text-white flex flex-col justify-center items-center">
     <h1 class="text-3xl m-4 font-semibold">BMI Calculator</h1>
-    <div class="flex flex-col gap-10 my-3">
+    <div class="flex flex-col justify-center items-center gap-10 my-3">
         <div class="flex gap-4 flex-col sm:flex-row">
             <div class="space-y-2 flex flex-col bg-indigo-900 p-4 rounded">
-                <p>Enter Your Weight(kg) ?</p>
+                <p>Enter Your Weight?</p>
                 <input type="text" id="weight" class="p-2 rounded-lg outline-none text-black">
                 <select id="weightSelected" class="text-black p-2 rounded">
                     <option value="kg" selected>kg</option>
@@ -34,6 +35,8 @@
         <p id="error" class="text-base font-semibold text-center text-red-500"></p>
         <p id="bmiNumber" class="text-xl font-semibold text-center"></p>
         <h1 id="result" class="text-xl font-semibold text-center"></h1>
+
+        <img id="img" class="w-96 rounded-lg hidden" src="./bmiphoto.jpg" alt="bmi-calculator">
         
 
     </div>
