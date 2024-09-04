@@ -6,6 +6,7 @@ const result = document.getElementById("result");
 const unitSelected = document.getElementById("unitSelected");
 const btnClear = document.getElementById("btnClear");
 const weightSelected = document.getElementById("weightSelected");
+const imgage = document.getElementById("img");
 
 //for condition
 function showResult(bmi){
@@ -46,12 +47,14 @@ button.addEventListener("click",function(){
     }else {
         return;
     }
+
     bmitxt.innerText = "Your BMI: " + bmi.toFixed(1);
 
-    const imgage = document.getElementById("img");
+   
     imgage.classList.remove("hidden");
      
     showResult(bmi);
+     
 });
 
 //for clear 
@@ -61,4 +64,5 @@ btnClear.addEventListener("click",function(){
     result.innerText = '';
     bmitxt.innerText = '';
     document.getElementById("error").innerText = '';
+    imgage.classList.add("hidden");
 })
